@@ -31,9 +31,13 @@ function createScene() {
   const gridHelper = new THREE.GridHelper(8, 8);
   scene.add(gridHelper);
 
+  // Add axes helper
+  const axesHelper = new THREE.AxesHelper();
+  scene.add(axesHelper);
+
   // Add a cube
   const cubeGeometry = new THREE.BoxGeometry(1, 1, 1);
-  const cubeMaterial = new THREE.MeshPhongMaterial({ color: 0xaa00ff });
+  const cubeMaterial = new THREE.MeshPhongMaterial({ color: 0xff00ff });
   cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
   scene.add(cube);
 }
@@ -57,7 +61,7 @@ function setup() {
     100
   );
 
-  camera.position.set(0, 0, 10);
+  camera.position.set(7, 7, 7);
   camera.lookAt(0, 0, 0);
 
   // Setup the control to manipulate the camera with the mouse
@@ -73,6 +77,10 @@ function setup() {
 /** Loop-function que se llama en cada frame
  */
 function animate() {
+  cube.position.set(0, 0, 0);
+  cube.rotateY(0);
+  cube.material.color.setRGB(1, 0, 1);
+
   requestAnimationFrame(animate);
   controls.update();
   renderer.render(scene, camera);
