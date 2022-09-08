@@ -3,13 +3,11 @@ const MiniCSSExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
 const fs = require("fs");
 
-const DEMOS_DIR = "./demos";
-
 // Toda subcarpeta dentro de './demos' representa una demo, entonces hay que incluir el HTML
 // La variable 'demos' es una lista de los nombres de cada demo
 const demos = fs
-  .readdirSync(DEMOS_DIR)
-  .filter((file) => fs.statSync(path.join(DEMOS_DIR, file)).isDirectory());
+  .readdirSync("./demos")
+  .filter((file) => fs.statSync(path.join("./demos", file)).isDirectory());
 
 module.exports = {
   // 'entry' es el Javascript que se va a incluir en cada HTML (Webpack se encarga de traducir Node a JS vainilla)
