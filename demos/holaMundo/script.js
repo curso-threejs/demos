@@ -1,7 +1,5 @@
-import "./style.css";
 import * as THREE from "three";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import { AxesHelper } from "three";
+import { OrbitControls } from "OrbitControls";
 
 const htmlContainer = document.getElementById("container3D");
 const renderer = new THREE.WebGLRenderer();
@@ -34,7 +32,7 @@ function createScene() {
   scene.add(gridHelper);
 
   // Add axes helper
-  const axesHelper = new AxesHelper();
+  const axesHelper = new THREE.AxesHelper();
   scene.add(axesHelper);
 
   // Add a cube
